@@ -221,9 +221,9 @@ vim.keymap.set('n', '<leader>ed', '<cmd>explore', { desc = 'Explore directory' }
 vim.keymap.set('n', '<leader>ee', '<cmd>ntree', { desc = 'Explore cwd' })
 
 -- buffer management
-vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#', { desc = 'Explore directory' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bd', { desc = 'Explore directory' })
-vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!.', { desc = 'Explore directory' })
+vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#', { desc = 'Delete other buffers' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bd', { desc = 'Delete current buffer' })
+vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!.', { desc = 'Delete all buffers' })
 
 -- [[ Configure and install plugins ]]
 --
