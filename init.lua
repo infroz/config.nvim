@@ -216,6 +216,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- File Exploration
+vim.keymap.set('n', '<leader>ed', '<cmd>explore', { desc = 'Explore directory' })
+vim.keymap.set('n', '<leader>ee', '<cmd>ntree', { desc = 'Explore cwd' })
+
+-- buffer management
+vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#', { desc = 'Explore directory' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bd', { desc = 'Explore directory' })
+vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!.', { desc = 'Explore directory' })
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
