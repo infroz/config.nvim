@@ -221,9 +221,9 @@ vim.keymap.set('n', '<leader>ed', '<cmd>Explore<CR>', { desc = 'Explore director
 vim.keymap.set('n', '<leader>ee', '<cmd>Ntree<CR>', { desc = 'Explore cwd' })
 
 -- buffer management
-vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#<CR>', { desc = 'Delete other buffers' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = 'Delete current buffer' })
-vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!.<CR>', { desc = 'Delete all buffers' })
+vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#!<CR>', { desc = 'Delete other buffers' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bd!<CR>', { desc = 'Delete current buffer' })
+vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!.!<CR>', { desc = 'Delete all buffers' })
 
 -- [[ Configure and install plugins ]]
 --
@@ -712,7 +712,7 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -838,13 +838,15 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    -- 'folke/tokyonight.nvim', -- default color scheme
+    'rose-pine/neovim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night' -- default color-scheme
+      vim.cmd.colorscheme 'rose-pine'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
