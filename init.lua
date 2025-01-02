@@ -1,7 +1,7 @@
 require("config.lazy")
 
-vim.wo.relativenumber = true
-vim.wo.number = true
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
 
 -- Highlight yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
