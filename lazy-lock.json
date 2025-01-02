@@ -1,5 +1,8 @@
 {
   "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
+  "mini.icons": { "branch": "main", "commit": "6787321f70d674a481776b7cc2c781fb7002c644" },
   "mini.nvim": { "branch": "main", "commit": "e91e854299429c986888711668743711acd8a14b" },
-  "nvim-treesitter": { "branch": "master", "commit": "fc687f38d4ea9a7399707a5a2d57297c2ac17323" }
+  "nvim-treesitter": { "branch": "master", "commit": "fc687f38d4ea9a7399707a5a2d57297c2ac17323" },
+  "oil.nvim": { "branch": "master", "commit": "ba858b662599eab8ef1cba9ab745afded99cb180" },
+  "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" }
 }
