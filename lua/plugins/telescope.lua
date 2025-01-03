@@ -11,6 +11,32 @@ return { {
 	config = function()
 		local builtin = require('telescope.builtin')
 
+		-- LSP / Telescope config
+		vim.api.nvim_create_autocmd('LspAttach', {
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+				if not client then return end
+
+				-- References
+				if client.supports_method('references') then
+					vim.keymap.set('n', '<leader>gr', builtin.lsp_references, { desc = 'References' })
+					vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'References' })
+				end
+
+				-- Definitions
+				if client.supports_method('definition') then
+					vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Definitions' })
+					vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Definitions' })
+				end
+
+				-- Implemtation
+				if client.supports_method('implemtation') then
+					vim.keymap.set('n', '<leader>gD', builtin.lsp_implementations, { desc = 'Definitions' })
+					vim.keymap.set('n', 'gD', builtin.lsp_implementations, { desc = 'Definitions' })
+				end
+			end,
+		})
+
 
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 		vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
