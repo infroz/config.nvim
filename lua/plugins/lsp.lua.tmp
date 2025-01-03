@@ -1,8 +1,0 @@
-return { 
-    "neovim/nvim-lspconfig", 
-    config = function() 
-      require("lspconfig").lua_ls.setup {}
-      require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-      require("lspconfig").vtsls = require("vtsls").setup()
-    end
-  }
