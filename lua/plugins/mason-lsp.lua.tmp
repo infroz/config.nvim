@@ -1,12 +1,9 @@
 return {
   {
-    "williamboman/mason.nvim",
+    -- "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
+    -- "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").lua_ls.setup {}
-      require("lspconfig.configs").vtsls = require("vtsls").lspconfig 
-      require("lspconfig").vtsls = require("vtsls").setup {}
 
       require("mason").setup()
       require("mason-lspconfig").setup({
@@ -28,6 +25,8 @@ return {
         end
     }
   end
-  }, { "williamboman/mason.nvim", config = function() require("mason").setup {} end }
+  },
+  { "williamboman/mason.nvim", config = function() require("mason").setup {} end },
+
 }
 
