@@ -13,6 +13,17 @@ vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#!<CR>', { desc = 'Delete other buf
 vim.keymap.set('n', '<leader>bd', '<cmd>bd!<CR>', { desc = 'Delete current buffer' })
 vim.keymap.set('n', '<leader>ba', '<cmd>1,$bd!<CR>', { desc = 'Delete * buffers' })
 
+-- in buffer fuzzy search
+-- Slightly advanced example of overriding default behavior and theme
+vim.keymap.set('n', '<leader>/', function()
+	local builtin = require('telescope.builtin')
+	-- You can pass additional configuration to Telescope to change the theme, layout, etc.
+	builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+		winblend = 10,
+		previewer = false,
+	})
+end, { desc = '[/] Fuzzily search in current buffer' })
+
 -- Highlight yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (Copying text)',
