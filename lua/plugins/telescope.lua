@@ -9,6 +9,15 @@ return { {
 		},
 	},
 	config = function()
+		local telescope = require('telescope')
+		telescope.setup({
+			extensions = {
+				fzf = {}
+			}
+		})
+		telescope.load_extension('fzf')
+
+
 		local builtin = require('telescope.builtin')
 
 		-- LSP / Telescope config
@@ -49,7 +58,6 @@ return { {
 		-- in buffer fuzzy search
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set('n', '<leader>/', function()
-			local builtin = require('telescope.builtin')
 			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
 			builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
 				winblend = 10,
@@ -59,9 +67,11 @@ return { {
 
 		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set('n', '<leader>fn', function()
-			local builtin = require('telescope.builtin')
 			builtin.find_files { cwd = vim.fn.stdpath 'config' }
 		end, { desc = '[F]ind [N]eovim files' })
+
+		require 'config.telescope.telescope'.setup()
 	end,
+
 
 } }
