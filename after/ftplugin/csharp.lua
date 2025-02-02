@@ -1,4 +1,5 @@
 -- CSharp
+local csharp = require 'csharp'
 
 -- Listen to LSP Attach
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -16,3 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		})
 	end
 })
+
+-- .NET development keymaps
+
+-- Project Management
+vim.keymap('n', '<leader>pd', function() csharp.debug_project() end, { desc = 'Debug project' })
