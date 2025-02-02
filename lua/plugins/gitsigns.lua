@@ -37,8 +37,8 @@ return {
 				map('n', '<leader>gu', gitsigns.undo_stage_hunk)
 				map('n', '<leader>gR', gitsigns.reset_buffer)
 				map('n', '<leader>gp', gitsigns.preview_hunk)
-				map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end)
-				map('n', '<leader>gB', gitsigns.toggle_current_line_blame)
+				map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end, { desc = "Git Blame Line" })
+				map('n', '<leader>gB', gitsigns.toggle_current_line_blame, { desc = "Toggle current line blame" })
 				map('n', '<leader>gd', gitsigns.diffthis)
 				map('n', '<leader>gD', function() gitsigns.diffthis('~') end)
 
