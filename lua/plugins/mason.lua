@@ -18,8 +18,8 @@ return {
 					"lua_ls",
 					"html",
 					"cssls",
-					--					"csharp_ls",
-					--					"netcoredbg", -- DAP for cg
+					"csharp_ls",
+					"netcoredbg", -- DAP for cg
 				}
 			})
 
