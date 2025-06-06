@@ -14,20 +14,32 @@ return {
 			-- # Default installs
 			mason_lspconfig.setup({
 				ensure_installed = {
+					-- # Web Dev
 					"vtsls",
-					"lua_ls",
 					"html",
 					"cssls",
-					"csharp_ls",
-					"netcoredbg", -- DAP for cg
-				}
+
+					-- # mostly for vim config
+					"lua_ls",
+
+					-- # C#
+					"omnisharp",
+
+				},
+				-- replacement for setup_handlers
+				handlers = {
+					function(server_name)
+						lspconfig[server_name].setup({})
+					end,
+				},
 			})
 
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					lspconfig[server_name].setup {}
-				end
-			})
+			-- throws error on init...
+			-- mason_lspconfig.setup_handlers({
+			-- 	function(server_name)
+			-- 		lspconfig[server_name].setup {}
+			-- 	end
+			-- })
 		end
 	},
 }
