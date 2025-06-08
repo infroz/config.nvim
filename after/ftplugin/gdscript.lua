@@ -16,7 +16,8 @@ vim.lsp.start({
 	cmd = cmd,
 	root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
 	on_attach = function(client, bufnr)
-		-- Start the server to listen for file open requests from Godot
-		vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
-	end,
+		if vim.v.servername == '' then
+			vim.fn.serverstart(pipe)
+		end
+	end
 })
